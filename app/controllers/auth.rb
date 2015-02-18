@@ -1,8 +1,8 @@
 
 ################### LOGIN ##############################
-get '/login' do
-	erb :'auth/login'
-end
+# get '/login' do
+# 	erb :'auth/login'
+# end
 
 post '/login' do
 	@user = User.find_by( username: params[:user][:username] )
@@ -18,9 +18,9 @@ post '/login' do
 end
 
 ################### SIGNUP ##############################
-get '/signup' do
-	erb :'auth/signup'
-end
+# get '/signup' do
+# 	erb :'auth/signup'
+# end
 
 post '/signup' do
 	@user = User.new( params[:user] )
