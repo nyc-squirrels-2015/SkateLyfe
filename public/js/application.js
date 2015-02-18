@@ -31,6 +31,27 @@ $(document).ready(function() {
 		});
 	});
 
+
+	$(".signup_form").on("submit", function(event){
+			event.preventDefault();
+			var $form = $(event.target)
+
+			$.ajax({
+				url:  $form.attr('action'),
+				type: $form.attr('method'),
+				data: $form.serialize(),
+				success: function(response){
+					$(".auth_btns").remove();
+					$("#content").prepend(response);
+					console.log(response);
+				},
+				error: function(){
+					errorMod.show("OOPS! You Forgot To Fill Out Some of The Fields. Try Again");
+				} 
+			});
+		});
+
+
 	var errorMod = (function(){
 		var errorDiv = '#error';
 		var showError = function(message){
