@@ -1,0 +1,26 @@
+<div class="list_skatelogs">
+	<% skatelogs.each do |skatelog| %>
+
+		<div class="skatelog">
+			<div class="title">
+				<a href="/skatelogs/<%skatelog.id%>"><%=skatelog.title%></a>
+				
+			</div>
+
+			<div class="profpic">
+				<img src="<%=skatelog.profpic%>">
+			</div>
+
+			<div class="username">
+				<p>@<%=skatelog.user.username%></p>
+				
+
+			</div>
+
+			<div class="description">
+				<%=skatelog.description%>
+			</div>									
+		</div>
+
+	<% end %>
+</div>
