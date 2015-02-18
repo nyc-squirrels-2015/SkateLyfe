@@ -26,10 +26,21 @@ $(document).ready(function() {
 				console.log(response);
 			},
 			error: function(){
-
+				errorMod.show("OOPS! Your Username and or Password Is Wrong. Try Again!");
 			} 
 		});
 	});
+
+	var errorMod = (function(){
+		var errorDiv = '#error';
+		var showError = function(message){
+			$(errorDiv).text(message);
+			$(errorDiv).show();
+		};
+			return{
+				show: showError
+			};
+	})();
 
 
 });
