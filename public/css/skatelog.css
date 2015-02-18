@@ -1,3 +1,29 @@
+.container{
+	position: absolute;
+	top: 50px;
+}
+
+nav{
+	position: fixed;
+	width: 100%;
+	background-color: grey;
+	border: 3px solid black;
+	z-index: 2;
+}
+
+nav a{
+	padding: 10px;
+}
+
+.btn_container{
+	display: inline-block;
+	border: 1px solid black;
+	background-color: grey;
+	width: 35%;
+	margin: 10px;
+	text-align: center; 
+}
+
 .login_form{
 	display: none;
 }
@@ -6,10 +32,40 @@
 	display: none;
 }
 
+.form{
+	display: block;
+}
+
+h2{
+	top: 50 px;
+}
+
 #error{
+	display: none;
 	color: red;
 }
 
-/*.profpic{
-	height: 100px;
-}*/
+.list_skatelogs{
+	padding: 20px;
+	clear: both;
+}
+
+.skatelog{
+	display: block;
+	border: 3px solid black;
+	margin-top: 40px;
+	margin-bottom: 40px;
+	background-color: teal;
+	text-align: center;
+}
+
+.title{
+	color: black;
+	text-align: center;
+	text-decoration: underline;
+	/*font-size: 35px;*/
+}
+
+.profpic{
+	width: 200px;
+}

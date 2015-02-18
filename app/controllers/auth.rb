@@ -9,6 +9,7 @@ post '/login' do
 	if @user.try(:authenticate, params[:user][:password])
 		session[:id] = @user.id		
 		# this will be for when i create the ajax call later
+		# redirect '/'
 		if request.xhr?
 			erb :'_partials/_auth', layout: false
 		end

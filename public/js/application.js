@@ -22,10 +22,10 @@ $(document).ready(function() {
 			data: $form.serialize(),
 			success: function(response){
 				$(".auth_btns").remove();
-				$("#content").prepend(response);
+				$(".container").prepend(response);
 				console.log(response);
 			},
-			error: function(){
+			error: function(response){
 				errorMod.show("OOPS! Your Username and or Password Is Wrong. Try Again!");
 			} 
 		});
@@ -42,10 +42,10 @@ $(document).ready(function() {
 				data: $form.serialize(),
 				success: function(response){
 					$(".auth_btns").remove();
-					$("#content").prepend(response);
+					$(".container").prepend(response);
 					console.log(response);
 				},
-				error: function(){
+				error: function(response){
 					errorMod.show("OOPS! You Forgot To Fill Out Some of The Fields. Try Again");
 				} 
 			});

@@ -4,11 +4,10 @@
 		<div class="skatelog">
 			<div class="title">
 				<a href="/skatelogs/<%skatelog.id%>"><%=skatelog.title%></a>
-				
 			</div>
 
-			<div class="profpic">
-				<img src="<%=skatelog.user.profpic%>">
+			<div >
+				<img class="profpic" src="<%=skatelog.user.profpic%>">
 			</div>
 
 			<div class="username">
@@ -24,14 +23,15 @@
 			<%if current_user && skatelog.user_id == current_user.id %>
 
 				<button>
-					<a href="">Edit Skatelog</a>
+					<a href="/skatelogs<%=skatelog.id%>/edit">Edit Skatelog</a>
 				</button>
+
 				<form class="delete_skatelog" action="/skatelogs/<%=skatelog.id%>" method="POST">
-					<input type="hidden" name="_method" method="DELETE">
+					<input type="hidden" name="_method" value="DELETE">
 					<input type="submit" value="Delete Skatelog">
 				</form>
-			<% end %>	
-		</div>
-
+			</div>
+	<% end %>	
+</div> <!-- this might not be needed -->
 	<% end %>
 </div>
