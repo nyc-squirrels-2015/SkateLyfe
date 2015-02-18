@@ -3,5 +3,6 @@ get '/' do
 end
 
 get '/skatelogs' do
+	@skatelogs = Skatelog.all
 	erb :index
 end
