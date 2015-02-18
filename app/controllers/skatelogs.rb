@@ -21,9 +21,9 @@ post '/skatelogs' do
 end
 
 ################ Display a specific Skatelog ################
-get '/skatelogs/:id' do
+get '/skatelogs/id' do
 	@skatelog = Skatelog.find(params[:id])
-	erb :show_single_skatelog
+	erb :'skatelogs/show_single_skatelog'
 end
 
 ########### Edit a specific Skatelog ############
@@ -56,6 +56,8 @@ delete '/skatelogs/:id' do
 end
 
 
-
+get '/skatelogs/' do
+  erb :'skatelogs/show_single_skatelog'
+end
 
 
