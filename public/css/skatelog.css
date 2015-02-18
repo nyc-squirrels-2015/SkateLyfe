@@ -5,3 +5,7 @@
 .signup_form{
 	display: none;
 }
+
+#error{
+	color: red;
+}
