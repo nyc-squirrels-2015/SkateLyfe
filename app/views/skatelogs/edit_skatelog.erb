@@ -1,0 +1,14 @@
+THIS IS THE FORM TO EDIT YOUR SKATELOG
+
+<div class="container">
+	<h2>Tell Your Skate Community About Your Session!</h2>
+	<form class="edit_post" action="/skatelogs/<%=@skatelog.id%>" method="POST">
+		<input type="hidden" name="_method" value="PUT">
+		<input type="hidden" name="skatelog[user_id]" value="<%=current_user.id%>">
+		<input type="text" name="skatelog[title]" value="<%=@skatelog.title%>">
+		<input type="text" name="skatelog[seshtime]" value="<%=@skatelog.seshtime%>">
+		<input type="text" name="skatelog[tricks]" value="<%=@skatelog.tricks%>">
+		<input type="text" name="skatelog[description]" value="<%=@skatelog.description%>">
+		<input type="submit"> 
+	</form>
+</div>

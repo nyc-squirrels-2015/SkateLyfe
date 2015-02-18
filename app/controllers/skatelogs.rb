@@ -30,15 +30,15 @@ end
 
 get '/skatelogs/:id/edit' do
 	@skatelog = Skatelog.find(params[:id])
-	erb :edit_skatelog
+	erb :'skatelogs/edit_skatelog'
 end
 
 put '/skatelogs/:id' do
-	skatelog = Skatelog.find(params[:id])
+	@skatelog = Skatelog.find(params[:id])
 
-	if session[:id] == skatelog.user.id
+	if session[:id] == @skatelog.user.id
 		begin
-			Skatelog.find(params[:skatelog])
+			Skatelog.find(params[:id]).update_attributes(params[:skatelog])
 			redirect '/'
 		rescue
 			404
