@@ -1,8 +1,8 @@
 <div class="auth_btns">
 	<% if current_user %>
 		<% user = current_user %>
-		<h2>Welcome to SkateLyfe<%=user.name%>!</h2>
-		<h4>Checkout Your Skate Community's Skate Skatelogs!</h4>
+		<h4>Welcome to SkateLyfe<%=user.name%>!</h2>
+		<h6>Checkout Your Skate Community's Skate Skatelogs!</h4>
 
 		<div class="btn_container">
 			<a class="logout_btn" href="/logout">LOGOUT</a>
@@ -13,7 +13,7 @@
 		</div>
 	
 	<% else %>	
-		<h2>Welcome to SkateLyfe!</h2>
+		<h4>Welcome to SkateLyfe!</h2>
 		
 		<div id="error">
 		</div>

@@ -19,7 +19,7 @@ describe "Skatelog" do
      
       # berk = Skatelog.find_by(title: "Berkeley Skate Park Sesh")
 
-      ryan = User.find_by(username: "Ryan",)
+      ryan = User.find_by(username: "Ryan")
      
 
       Skatelog.delete_all
