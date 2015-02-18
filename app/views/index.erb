@@ -1,1 +1,5 @@
-Welcome to my site!
+<div class="container">
+	<%= erb :'_partials/_auth'%>
+	<%= erb :'skatelogs/list_skatelogs', locals: {skatelogs: @skatelogs} %>
+
+</div>
