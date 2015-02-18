@@ -16,7 +16,7 @@ end
 
 post '/skatelogs' do
 	params[:skatelog][:user_id] = current_user.id
-	@skatelog = Skatelog.create(params[:skatelog])
+	skatelog = Skatelog.create(params[:skatelog])
 	redirect '/'
 end
 
@@ -45,3 +45,17 @@ put '/skatelogs/:id' do
 		end
 	end
 end
+
+############## Delete a Specific Skatelog ########
+
+delete '/skatelogs/:id' do
+	skatelog = Skatelog.find(params[:id])
+	skatelog.destroy
+
+	redirect '/'
+end
+
+
+
+
+
