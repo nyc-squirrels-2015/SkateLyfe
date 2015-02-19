@@ -1,56 +1,21 @@
-# require_relative '../spec_helper'
+require_relative '../spec_helper'
 
 
-# describe "Skatelog" do
-#   describe "inheritance" do
-#     it "inherits from ActiveRecord::Base" do
-#       expect(Skatelog < ActiveRecord::Base).to be true
-#     end
-#   end
+let (:user) {User.create(name: 'test', username:'test', boardtype: "indo", password:'123')}
+let (:session) {}  
 
-#   describe "associations" do
+before do
+session[:id] = user.id
+end
 
-#     before(:all) do
-#       Skatelog.delete_all
-#       Skatelog.create(title: "Berkeley Skate Park", seshtime: "1 hour", tricks: "none", description: "Skating and hanging with patches")
+# describe 
+# to test the create controller
+	post '/skatelogs/new',  params= {"user" =>{"name" =>"newtest",username:'newtest', boardtype: "newindo", password:'123'}}
+	expect(last_response).to be_redirect
+		# bc this is a post (or if it was a put or delete too), it has to redirect
 
-
-#       berk = Skatelog.find_by(title: "Berkeley Skate Park")
-
-#       Skatelog.delete_all
-#       Skatelog.create( {
-#                     :title        => "Berkeley Skate Park",
-#                     :seshtime     => "1 hour",
-#                     :tricks       => "none",
-#                     :description  => "Skating and hanging with patches",
-#                     :user_id      => user.id } )
-#     end
-
-
-
-#     describe "belongs to user" do
-#       describe "#user" do
-#         it "returns the user's skatelog" do
-#           skatelog = Skatelog.first
-#           expected_user = User.find(skatelog.user_id)
-
-#           expect(skatelog.user).to eq expected_user
-#         end
-
-#         it "returns a User object" do
-#           skatelog = Skatelog.first
-#           expect(skatelog.user).to be_instance_of User
-#         end
-#       end
-
-#       describe "#user=" do
-#         it "sets user_id" do
-#           skatelog = Skatelog.new
-#           new_user = User.first
-
-#           expect{ skatelog.user = new_user }.to change{ skatelog.user_id }.from(nil).to(new_user.id)
-#         end
-#       end
-#     end
-#   end
-# end
+		follow_redirect
+		expect(last_response.body).to include 'Post Your Skatelog'
+			# the update string is the just the value of the button
+		expect(last_response.body).to include 'newtest'
+	end

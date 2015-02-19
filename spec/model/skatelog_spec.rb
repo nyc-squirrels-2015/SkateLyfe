@@ -11,15 +11,13 @@ describe "Skatelog" do
   describe "associations" do
 
     before(:all) do
-      # Skatelog.delete_all
-      # Skatelog.create(title: "Berkeley Skate Park Sesh", seshtime: "1 hour", tricks: "none", description: "Skating and hanging with patches")
+      Skatelog.delete_all
+      Skatelog.create(title: "Berkeley Skate Park Sesh", seshtime: "1 hour", tricks: "none", description: "Skating and hanging with patches", user_id: 5)
 
-      User.delete_all
-      User.create(name:"Drama", username:"Drama", boardtype: "indo", password:"123")
+      User.create(name:"Dramass", username:"Dramass", boardtype: "indo", password:"123", id: 5)
      
-      # berk = Skatelog.find_by(title: "Berkeley Skate Park Sesh")
 
-      ryan = User.find_by(username: "Ryan")
+      drama = User.find_by(username: "Dramass")
      
 
       Skatelog.delete_all
@@ -27,7 +25,7 @@ describe "Skatelog" do
                     :seshtime     => "1 hour",
                     :tricks       => "none",
                     :description  => "Skating and hanging with patches",
-                    :user_id      => ryan.id } )
+                    :user_id      => drama.id } )
     end
 
 
@@ -47,14 +45,9 @@ describe "Skatelog" do
         end
       end
 
-      describe "#user=" do
-        it "sets user_id" do
-          skatelog = Skatelog.new
-          new_user = User.first
-
-          expect{ skatelog.user = new_user }.to change{ skatelog.user_id }.from(nil).to(new_user.id)
-        end
-      end
     end
   end
 end
+
+
+
