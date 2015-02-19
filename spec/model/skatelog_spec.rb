@@ -11,10 +11,10 @@ describe "Skatelog" do
   describe "associations" do
 
     before(:all) do
-      Skatelog.delete_all
-      Skatelog.create(title: "Berkeley Skate Park Sesh", seshtime: "1 hour", tricks: "none", description: "Skating and hanging with patches", user_id: 5)
+      Skatelog.destroy_all
+      user = User.create(name:"Dramass", username:"Dramass", boardtype: "indo", password:"123")
+      Skatelog.create(title: "Berkeley Skate Park Sesh", seshtime: "1 hour", tricks: "none", description: "Skating and hanging with patches", user_id: user.id)
 
-      User.create(name:"Dramass", username:"Dramass", boardtype: "indo", password:"123", id: 5)
      
 
       drama = User.find_by(username: "Dramass")
